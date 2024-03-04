@@ -27,7 +27,7 @@ class Observer(NITLibrary.NITUserObserver):
 
 
 class PyNIT(object):
-    def __init__(self):
+    def __init__(self, nuc_filepath: str = "./nuc/25mhz/NUCFactory_2000us.yml", bpr_filepath: str = "./nuc/25mhz/BPM.yml"):
         """
         Connect to the camera and initialize image acquisition
         """
@@ -48,11 +48,8 @@ class PyNIT(object):
         device.updateConfig()
 
         # Setup acquisition stream
-        nuc_filename = "./nuc/25mhz/NUCFactory_2000us.yml"
-        bpm_filename = "./nuc/25mhz/BPM.yml"
-
-        device.setNucFile(nuc_filename)
-        device.setBprFile(bpm_filename)
+        device.setNucFile(nuc_filepath)
+        device.setBprFile(bpr_filepath)
 
         self.averaging = Averaging()
 

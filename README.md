@@ -10,7 +10,7 @@ Install the NIT SDK from the NIT website.
 
 ### NUC and BPR files
 
-Those files must be present in the 
+Those files must be given on the construction of the `PyNIT` object.
 
 ### User permissions
 
