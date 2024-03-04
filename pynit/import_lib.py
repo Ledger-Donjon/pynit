@@ -32,7 +32,7 @@ if NITLibrary is None:
             (
                 "NITLibrary file missing, make sure NITLibrary_x64_xxx_py"
                 + pythonVersion
-                + ".pyd and NITLibrary_x64.dll files are available in the 'libs' directory"
+                + f".pyd and NITLibrary_x64.dll files are available in the {__dirname}' directory"
                 " and that your python version (" + pythonVersion + ") is supported. "
             )
         )
@@ -43,7 +43,7 @@ if NITLibrary is None:
                 + pythonVersion
                 + ".so or NITLibrary_aarch64_xxx_py"
                 + pythonVersion
-                + ".so and NITLibrary package are correctly installed"
+                + f".so and NITLibrary package are correctly installed (files can be imported, for instance from the {__dirname}' directory)"
                 " and that your python version (" + pythonVersion + ") is supported. "
             )
         )
