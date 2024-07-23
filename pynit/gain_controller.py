@@ -8,7 +8,7 @@ class GainController(NITLibrary.NITUserFilter):
     last_image: Optional[numpy.ndarray] = None
 
     def onNewFrame(self, frame):
-        self.last_image = frame.data().copy()*255.0
+        self.last_image = frame.data().copy()
         delta = self.high - self.low
         return ((self.last_image - self.low) / delta).clip(0.0, 1.0)
     
@@ -23,8 +23,8 @@ class GainController(NITLibrary.NITUserFilter):
             return
         values = numpy.sort(self.last_image, axis=None)
         skip = len(values) // 200
-        self.low = int(values[skip])
-        self.high = int(values[len(values) - skip - 1])
+        self.low = values[skip]
+        self.high = values[len(values) - skip - 1]
 
     def get_low(self) -> float:
         return self.low
